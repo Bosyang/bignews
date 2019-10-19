@@ -55,27 +55,29 @@
         </div>
     </div>
     <script>
-        $('.level01').click(function() {
-            //1.1 排他思想修改样式
-            $(this).addClass('active').siblings().removeClass('active');
+        $(function() {
+            $('.level01').click(function() {
+                //1.1 排他思想修改样式
+                $(this).addClass('active').siblings().removeClass('active');
 
-            // if ($(this).next().hasClass('level02')) {
-            //     //滑入滑出切换
-            //     $(this).next().slideToggle();
-            //     //旋转90度切换
-            //     $(this).find('b').toggleClass('rotate0');
-            //     //默认选中第一个 : DOM对象
-            //     $('.level02>li>a').first()[0].click();
-            // } else {
-            //     //如果点击的不是文章管理一级菜单列表，则移除二级列表的选中样式
-            //     $('.level02>li').removeClass('active');
-            // }
-        });
+                if ($(this).next().hasClass('level02')) {
+                    //滑入滑出切换
+                    $(this).next().slideToggle();
+                    //旋转90度切换
+                    $(this).find('b').toggleClass('rotate0');
+                    //默认选中第一个 : DOM对象
+                    $('.level02>li>a').first()[0].click();
+                } else {
+                    //如果点击的不是文章管理一级菜单列表，则移除二级列表的选中样式
+                    $('.level02>li').removeClass('active');
+                }
 
-        //2.二级列表
-        $('.level02>li').click(function() {
-            $(this).addClass('active').siblings().removeClass('active');
-        });
+            });
+            //2.二级列表
+            $('.level02>li').click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+        })
     </script>
 </body>
 
